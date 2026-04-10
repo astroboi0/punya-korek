@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio Saya</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Navbar */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #4a90e2;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+        }
+
+        .nav-links a:hover {
+            color: #4a90e2;
+            background: rgba(74, 144, 226, 0.1);
+        }
+
+        /* Hero Section */
+        #home {
+            height: 100vh;
+            background: linear-gradient(135deg, #171718 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .foto {
+            width: 100%;
+            height: auto;
+            background: linear-gradient(45deg, #4a90e2, #50c9c3);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+        }
+        .hero-content {
+            max-width: 800px;
+            padding: 0 2rem;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-content h1 span {
+            color: #ff6b6b;
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #ff6b6b;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.4);
+        }
+
+        /* Sections */
+        section {
+            background: linear-gradient(135deg, #3b3939 0%, #764ba2 100%);
+            padding: 5rem 0;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-left: 2rem;
+            padding-right: 2rem;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #000000;
+        }
+
+        /* About */
+        #about {
+        background: linear-gradient(135deg, #f9f9ff 0%, #764ba2 100%);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-image {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(45deg, #4a90e2, #50c9c3);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .skill-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .skill-icon img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 10px;
+            display: block;
+            margin: 0 auto;
+        }
+        
+
+        /* Projects */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .project-image {
+            height: 200px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-link {
+            color: #4a90e2;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Contact */
+        #contact {
+            background: #333;
+            color: white;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .contact-info h3 {
+            margin-bottom: 1rem;
+            color: #4a90e2;
+        }
+
+        .contact-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .contact-link {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            transition: background 0.3s ease;
+        }
+
+        .contact-link:hover {
+            background: rgba(255,255,255,0.2);
+        }
+
+        .contact-form {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 15px;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: none;
+            border-radius: 10px;
+            background: rgba(255,255,255,0.9);
+            font-size: 1rem;
+            font-family: inherit;
+        }
+
+        .submit-btn {
+            background: #4a90e2;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1rem;
+            width: 100%;
+            transition: background 0.3s ease;
+            font-family: inherit;
+        }
+
+        .submit-btn:hover {
+            background: #357abd;
+        }
+
+        /* Footer */
+        footer {
+            background: #222;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 0 1rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            section {
+                padding-left: 1rem;
+                padding-right: 1rem;
+                padding-top: 3rem;
+                padding-bottom: 3rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+   
+    <nav>
+        <div class="nav-container">
+            <div class="logo">My Portofolio</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Roles & Skills</a></li>
+                <li><a href="#projects">Projects & Joki</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    
+    <section id="home">
+        <div class="hero-content">
+            <h1>Halo, Saya <span>Rayyan Al Abqary</span></h1>
+            <p>Stundent of MAN Model, Informatics</p>
+            <a href="#contact" class="cta-button">Hubungi Saya</a>
+        </div>
+    </section>
+
+    
+    <section id="about">
+        <h2>Tentang Saya</h2>
+        <div class="about-content">
+            <img src="C:\Users\ASUS\OneDrive\Pictures\fedbce64-626e-405a-8a28-ce320a68ecc4.jfif" alt="Rayyan Al Abqary" class="foto" alt="gambar">
+            <div>
+                <h3>Tentang Saya</h3>
+                <p>Saya adalah seorang pelajar di MAN Model yang sedang mengikuti pembelajaran di bidang teknologi informatika dan saya dapat diandalkan .</p>
+                <p><strong>Fokus:</strong> Kerja sama tim dan komunikasi yang efektif.</p>
+            </div>
+        </div>
+    </section>
+
+    
+    <section id="skills">
+        <h2>Roles & Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-item">
+                <div class="skill-icon">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRuRzjQ4h1eSK6hY6iOW-5ElWcvIgMJUnjF_4_4CVGSzQ&s" alt="HTML5">
+                </div>
+                <h3>ROAMER</h3>
+                <p>Bergerak bebas di seluruh area map untuk memberikan informasi, melindungi rekan, atau mengganggu pergerakan lawan.</p>
+            </div>
+            <div class="skill-item">
+                <div class="skill-icon">
+                    <img src="https://img.freepik.com/premium-vector/role-mobile-legends-bang-bang_890255-44.jpg" alt="HTML5">
+                </div>
+                <h3>GOLD LANER</h3>
+                <p>Biasanya diisi oleh Marksman. Fokus mengumpulkan emas dari minion agar cepat membeli item pertama.</p>
+            </div>
+            <div class="skill-item">
+                <div class="skill-icon">
+                     <img src="data:image/png;base64,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" alt="HTML5">
+                </div>
+                <h3>JUNGLER</h3>
+                <p>Berada di area hutan untuk mengamankan objektif seperti turtle dan lord.</p>
+            </div>
+        </div>
+    </section>
+
+    
+    <section id="projects" style="background: #f8f9fa;">
+        <h2>Project/Joki</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-image">
+                    <i class="fas fa-shopping-cart"></i> E-Commerce App
+                </div>
+                <div class="project-content">
+                    <h3>Jokian</h3>
+                    <p>Aplikasi e-commerce lengkap dengan React, Node.js, dan MongoDB. Fitur: cart, payment gateway, admin dashboard.</p>
+                    <a href="#" class="project-link" target="_blank">Lihat Demo →</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-image">
+                    <i class="fas fa-tasks"></i> Task Manager
+                </div>
+                <div class="project-content">
+                    <h3>Mabar VIP</h3>
+                    <p>Aplikasi manajemen tugas dengan drag & drop, real-time collaboration.</p>
+                    <a href="#" class="project-link" target="_blank">Lihat Demo →</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-image">
+                    <i class="fas fa-laptop-code"></i> Portfolio Site
+                </div>
+                <div class="project-content">
+                    <h3>Fast track</h3>
+                    <p>Website portfolio responsif dengan animasi modern dan smooth scrolling.</p>
+                    <a href="#" class="project-link" target="_blank">Lihat Demo →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Kontak Saya</h2>
+        <div class="contact-content">
+            <div class="contact-info">
+                <h3>Mari Berkolaborasi!</h3>
+                <div class="contact-links">
+                    <a href="rayyanalabqary.com" class="contact-link">
+                        <i class="fas fa-envelope"></i>
+                        rayyanalabqary.com
+                    </a>
+                    <a href="tel:+628123456789" class="contact-link">
+                        <i class="fas fa-phone"></i>
+                        +62 812 3456 7890
+                    </a>
+                    <a href="#" class="contact-link">
+                        <i class="fab fa-whatsapp"></i>
+                        WhatsApp
+                    </a>
+                    <a href="#" class="contact-link">
+                        <i class="fab fa-linkedin"></i>
+                        LinkedIn
+                    </a>
+                </div>
+            </div>
+            <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                <div class="form-group">
+                    <input type="text" name="name" placeholder="Nama Lengkap" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <textarea name="message" rows="5" placeholder="Pesan Anda..." required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Kirim Pesan</button>
+            </form>
+        </div>
+    </section>
+
+    
+</body>
+</html>
