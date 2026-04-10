@@ -145,29 +145,68 @@
             color: #000000;
         }
 
-        /* About */
+         /* About */
         #about {
         background: linear-gradient(135deg, #f9f9ff 0%, #764ba2 100%);
         }
 
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 3rem;
-            align-items: center;
-        }
+        .#about {
+    padding: 60px 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
 
-        .about-image {
-            width: 100%;
-            height: 400px;
-            background: linear-gradient(45deg, #4a90e2, #50c9c3);
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4rem;
-            color: white;
-        }
+#about h2 {
+    text-align: center;
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.about-content {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    max-width: 700px;
+}
+
+.about-content > div {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    text-align: center;
+    width: 100%;
+    /* BORDER KE TENGAH */
+    border: 2px solid rgba(255,255,255,0.3);
+    border-top: none;
+    border-bottom: none;
+    margin: 0 40px; /* Jarak dari tepi */
+}
+
+.about-content h3 {
+    color: #333;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.about-content p {
+    color: #666;
+    line-height: 1.8;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+
+.about-content strong {
+    color: #667eea;
+}
 
         /* Skills */
         .skills-grid {
